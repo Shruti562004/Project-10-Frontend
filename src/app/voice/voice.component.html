@@ -1,0 +1,42 @@
+
+
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Voice</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Voice</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left"> CommandName<span style="color: red">*</span></th>
+            <td><input type="text" name=" commandName" [(ngModel)]="form.data. commandName" placeholder="Enter  commandName"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.commandName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Response<span style="color: red">*</span></th>
+            <td><input type="text" name="response" [(ngModel)]="form.data.response" placeholder="Enter response"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.response}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Language<span style="color: red">*</span></th>
+            <td><input type="text" name="language" [(ngModel)]="form.data.language" placeholder="Enter language"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.language}}</td>
+        </tr>
+
+
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+         
+            </td>
+        </tr>
+    </table>
+</div>
+
