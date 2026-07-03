@@ -12,7 +12,7 @@ export class HttpServiceService {
   }
 
   post(endpoint: any, bean: any, callback: any) {
-    return this.httpClient.post(endpoint, bean).subscribe((data) => {
+    return this.httpClient.post(endpoint, bean, { withCredentials: true }).subscribe((data) => {
       callback(data);
     }, (error) => {
       this.handleError(error);

@@ -1,62 +1,152 @@
 
+<div class="container py-4" style="margin-top: 130px;">
 
-<div align="center">
-    <h1 align="center" style="margin-bottom: 5px; color: navy;">Role List</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    <!-- Heading -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Role List</h1>
     </div>
 
-    <div *ngIf="form.list.length > 0">
-        <table style="width: 100%">
-            <tr>
-                <td align="center">
-                    <label><b>Role: </b></label>
-                    <select name="id" [(ngModel)]="form.searchParams.id" style="width: 165px;">
-                        <option value="undefined">------------Select------------</option>
-                        <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
-                    </select>&nbsp;
+    <!-- Messages -->
+    <div class="text-center mb-3" style="min-height:30px;">
+        <h5 class="text-success" *ngIf="!form.error && form.message">
+            {{form.message}}
+        </h5>
 
-                    <button (click)="search()">search</button>&nbsp;
-                    <button (click)="reset()">reset</button>
-                </td>
-            </tr>
-        </table>
-
-        <br>
-
-        <table border="1" style="width: 100%; border: groove;">
-            <tr style="background-color: #e1e6f1e3;">
-                <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" /></th>
-                <th>S.No</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Edit</th>
-            </tr>
-
-            <tr align="center" *ngFor="let m of form.list; let i = index">
-                <td><input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id" [value]="isMasterSel"></td>
-                <td>{{(form.pageNo*5)+i+ 1}}</td>
-                <td>{{m.name}}</td>
-                <td>{{m.description}}</td>
-                <td><a (click)="forward( '/role/' +  m.id)" style="cursor: pointer;">Edit</a></td>
-            </tr>
-        </table>
-
-        <br>
-
-        <table style="width: 100%">
-            <tr>
-                <td style="width: 25%"><button (click)="previous()" [disabled]="form.pageNo == 0">previous</button></td>
-                <td align="center" style="width: 25%"><button (click)="forward('/role')">new</button></td>
-                <td align="center" style="width: 25%"><button (click)="deleteMany()">delete</button></td>
-                <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.nextListSize == 0">next</button></td>
-            </tr>
-        </table>
+        <h5 class="text-danger" *ngIf="form.error && form.message">
+            {{form.message}}
+        </h5>
     </div>
 
-    <br>
+    <!-- Search -->
+    <div class="row justify-content-center align-items-center g-2 mb-4">
 
-    <div *ngIf="form.list.length == 0"><button (click)="reset()">Back</button></div>
+        <div class="col-lg-3 col-md-5">
+            <select class="form-select"
+                    [(ngModel)]="form.searchParams.id">
+                <option value="undefined">Select Role</option>
+
+                <option *ngFor="let obj of form.preload.roleList"
+                        [value]="obj.key">
+                    {{obj.value}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col-auto">
+            <button class="btn btn-primary"
+                    (click)="search()">
+                Search
+            </button>
+        </div>
+
+        <div class="col-auto">
+            <button class="btn btn-secondary"
+                    (click)="reset()">
+                Reset
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive shadow-sm rounded"
+         *ngIf="form.list.length>0">
+
+        <table class="table table-bordered table-hover align-middle text-center mb-0">
+
+            <thead class="table-primary">
+                <tr>
+
+                    <th width="50">
+                        <input type="checkbox"
+                               [(ngModel)]="isMasterSel"
+                               (change)="checkUncheckAll($event)">
+                    </th>
+
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let m of form.list; let i=index">
+
+                    <td>
+                        <input type="checkbox"
+                               #checkboxes
+                               [id]="m.id"
+                               [value]="isMasterSel"
+                               (change)="checklistUpdate()">
+                    </td>
+
+                    <td>{{(form.pageNo*5)+i+1}}</td>
+                    <td>{{m.name}}</td>
+                    <td>{{m.description}}</td>
+
+                    <td>
+                        <button class="btn btn-warning btn-sm"
+                                (click)="forward('/role/' + m.id)">
+                            Edit
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="row mt-4 g-3"
+         *ngIf="form.list.length>0">
+
+        <div class="col-lg-3 col-md-6">
+            <button class="btn btn-outline-secondary w-100"
+                    (click)="previous()"
+                    [disabled]="form.pageNo==0">
+                Previous
+            </button>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <button class="btn btn-success w-100"
+                    (click)="forward('/role')">
+                New
+            </button>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <button class="btn btn-danger w-100"
+                    (click)="deleteMany()">
+                Delete
+            </button>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <button class="btn btn-outline-primary w-100"
+                    (click)="next()"
+                    [disabled]="form.nextListSize==0">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4"
+         *ngIf="form.list.length==0">
+
+        <button class="btn btn-secondary"
+                (click)="reset()">
+            Back
+        </button>
+
+    </div>
+
 </div>

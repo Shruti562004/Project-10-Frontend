@@ -1,0 +1,162 @@
+{
+  "Login": "लॉगिन",
+  "Sign In": "साइन इन",
+  "Sign Up": "साइन अप",
+  "Forget my password?": "क्या आप अपना पासवर्ड भूल गए?",
+  "Login Id": "लॉगिन आईडी",
+  "Password": "पासवर्ड",
+  "dashboard":"डैशबोर्ड",
+"Welcome Back" : "फिर से स्वागत है",
+"Sign in to your account": "अपने खाते में साइन इन करें",
+  "UserRegistration": "उपयोगकर्ता पंजीकरण",
+"Rays Technologies": "रेज़ टेक्नोलॉजीज",
+"© 2026 All Rights Reserved": "© 2026 सभी अधिकार सुरक्षित",
+  "FirstName": "पहला नाम",
+  "LastName": "अंतिम नाम",
+  "DateOfBirth": "जन्म तिथि",
+  "Gender": "लिंग",
+  "Mobile": "मोबाइल",
+   "User": "यूज़र",
+    "Role": "भूमिका",
+    "College": "कॉलेज",
+    "Student": "छात्र",
+    "Course": "कोर्स",
+    "Subject": "विषय",
+    "Faculty": "शिक्षक",
+    "Timetable": "टाइमटेबल",
+    "Marksheet": "अंकपत्र",
+    "Courier": "कूरियर",
+    "Voice": "आवाज़",
+ 
+    "Vehicle":"वाहन",
+    "Water":"पानी",
+    "Java Docs":"जावा डॉक्यूमेंटेशन ",
+    "Logout":"लॉगआउट",
+    "MyProfile": "मेरा प्रोफाइल",
+    "GetMarksheet": "मार्कशीट प्राप्त करें",
+    "MeritList": "मेरिट सूची",
+    "OpenJavaDocs": "जावा डॉक्यूमेंटेशन खोलें",
+ "WELCOME TO ONLINE RESULT SYSTEM":"ऑनलाइन रिजल्ट सिस्टम में आपका स्वागत है",
+ "ORS is online web application that manage student and marksheet records." :"ORS एक ऑनलाइन वेब एप्लिकेशन है जो छात्रों और अंकपत्र (मार्कशीट) के रिकॉर्ड को प्रबंधित करता है।",
+"Read More":"और पढ़ें",
+  "Buttons": {
+    "SignUp": "साइन अप",
+    "Reset": "रीसेट"
+  },
+
+  "GenderOptions": {
+    "Select": "------------चुनें------------",
+    "Male": "पुरुष",
+    "Female": "महिला"
+  },
+
+  "Greetings": {
+    "HiUser": "नमस्ते, {{name}} ({{role}})",
+    "HiGuest": "नमस्ते, अतिथि"
+  },
+
+ 
+
+  "Links": {
+    "MyProfile": "मेरा प्रोफ़ाइल",
+    "ChangePassword": "पासवर्ड बदलें",
+
+    "AddUser": "यूज़र जोड़ें",
+    "UserList": "यूज़र सूची",
+
+    "AddRole": "भूमिका जोड़ें",
+    "RoleList": "भूमिका सूची",
+
+    "AddCollege": "कॉलेज जोड़ें",
+    "CollegeList": "कॉलेज सूची",
+
+    "AddStudent": "छात्र जोड़ें",
+    "StudentList": "छात्र सूची",
+
+    "AddMarksheet": "अंकपत्र जोड़ें",
+    "MarksheetList": "अंकपत्र सूची",
+
+    "AddCourse": "कोर्स जोड़ें",
+    "CourseList": "कोर्स सूची",
+
+    "AddSubject": "विषय जोड़ें",
+    "SubjectList": "विषय सूची",
+
+    "AddTimetable": "टाइमटेबल जोड़ें",
+    "TimetableList": "टाइमटेबल सूची",
+
+    "AddFaculty": "फैकल्टी जोड़ें",
+    "FacultyList": "फैकल्टी सूची",
+
+    "AddCourier": "कूरियर जोड़ें",
+    "CourierList": "कूरियर सूची",
+
+    "AddVoice": "आवाज़ जोड़ें",
+    "VoiceList": "आवाज़ सूची",
+
+    "Dashboard": "डैशबोर्ड",
+    "Login": "लॉगिन",
+    "Logout": "लॉगआउट",
+
+  
+      "AddVoice": "वॉइस जोड़ें",
+  "VoiceList": "वॉइस सूची",
+
+  "AddVehicle": "वाहन जोड़ें",
+  "VehicleList": "वाहन सूची",
+
+  "AddWater": "पानी जोड़ें",
+  "WaterList": "पानी सूची"
+  },
+
+  "LocaleSelect": {
+    "Select": "-------चुनें-------",
+    "English": "अंग्रेज़ी",
+    "Hindi": "हिंदी"
+  },
+
+  "UserForm": {
+    "AddUser": "उपयोगकर्ता जोड़ें",
+    "UpdateUser": "उपयोगकर्ता अपडेट करें",
+
+    "FirstName": "पहला नाम",
+    "LastName": "अंतिम नाम",
+    "LoginId": "लॉगिन आईडी",
+    "Password": "पासवर्ड",
+    "DateOfBirth": "जन्म तिथि",
+    "Gender": "लिंग",
+    "Role": "भूमिका",
+    "Mobile": "मोबाइल",
+    "AlternateMobile": "वैकल्पिक मोबाइल",
+    "Status": "स्थिति",
+
+    "Placeholders": {
+      "FirstName": "पहला नाम दर्ज करें",
+      "LastName": "अंतिम नाम दर्ज करें",
+      "LoginId": "लॉगिन आईडी दर्ज करें",
+      "Password": "पासवर्ड दर्ज करें",
+      "DateOfBirth": "जन्म तिथि चुनें",
+      "Mobile": "मोबाइल नंबर दर्ज करें",
+      "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+    },
+
+    "SelectOptions": {
+      "Select": "------------चुनें------------",
+      "Male": "पुरुष",
+      "Female": "महिला",
+      "Active": "सक्रिय",
+      "Inactive": "निष्क्रिय"
+    },
+
+    "Buttons": {
+      "Save": "सहेजें",
+      "List": "सूची"
+    },
+    "RoleNames": {
+  "Admin": "एडमिन",
+  "User": "यूज़र"
+}
+
+    
+  }
+}

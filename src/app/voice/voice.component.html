@@ -1,42 +1,123 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
 
+  <div class="card shadow border-0 overflow-hidden" style="width: 100%; max-width: 800px; border-radius: 12px;">
 
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Voice</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Voice</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    <div class="bg-primary text-white text-center py-4">
+      <h3 class="mb-1 fw-bold">
+        <span *ngIf="!form.data.id">Add Voice</span>
+        <span *ngIf="form.data.id > 0">Update Voice</span>
+      </h3>
+      <p class="mb-0 opacity-75 small">Enter voice details</p>
     </div>
 
-    <table>
-        <tr>
-            <th align="left"> CommandName<span style="color: red">*</span></th>
-            <td><input type="text" name=" commandName" [(ngModel)]="form.data. commandName" placeholder="Enter  commandName"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.commandName}}</td>
-        </tr>
+   <div class="card-body p-4 bg-white">
 
-        <tr>
-            <th align="left">Response<span style="color: red">*</span></th>
-            <td><input type="text" name="response" [(ngModel)]="form.data.response" placeholder="Enter response"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.response}}</td>
-        </tr>
+     <!-- Success Message -->
+                    <div *ngIf="!form.error && form.message"
+                        class="alert alert-success">
+                        {{form.message}}
+                    </div>
 
-        <tr>
-            <th align="left">Language<span style="color: red">*</span></th>
-            <td><input type="text" name="language" [(ngModel)]="form.data.language" placeholder="Enter language"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.language}}</td>
-        </tr>
+                    <!-- Error Message -->
+                    <div *ngIf="form.error && form.message"
+                        class="alert alert-danger">
+                        {{form.message}}
+                    </div>
+
+      <div class="row g-3">
+        
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">
+            Command Name <span class="text-danger">*</span>
+          </label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 name="commandName"
+                 [(ngModel)]="form.data.commandName"
+                 placeholder="Enter commandName"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.commandName}}</small>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">
+            Response <span class="text-danger">*</span>
+          </label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 name="response"
+                 [(ngModel)]="form.data.response"
+                 placeholder="Enter response"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.response}}</small>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">
+            Language <span class="text-danger">*</span>
+          </label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 name="language"
+                 [(ngModel)]="form.data.language"
+                 placeholder="Enter language"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.language}}</small>
+        </div>
+
+      </div>
+
+      <hr class="text-muted my-4">
+
+       <!-- Buttons -->
+
+<div class="row">
+
+  <!-- ADD MODE -->
+  <ng-container *ngIf="!form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-primary w-100 rounded-3"
+              (click)="submit()">
+        Save
+      </button>
+    </div>
+
+    <div class="col-6">
+      <button class="btn btn-outline-secondary w-100 rounded-3"
+              (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </ng-container>
+
+  <!-- EDIT MODE -->
+  <ng-container *ngIf="form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-success w-100 rounded-3"
+              (click)="submit()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-6">
+        <button type="button" (click)="forward('/voiceList')" class="btn btn-outline-secondary  w-100 rounded-3">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+    </div>
+
+  </ng-container>
 
 
+              
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-         
-            </td>
-        </tr>
-    </table>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-

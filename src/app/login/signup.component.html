@@ -1,0 +1,127 @@
+<div class="container py-4" style="margin-top:80px;">
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-5 col-sm-10">
+
+      <div class="card border-0 shadow-lg rounded-4"
+           style="backdrop-filter: blur(10px);">
+
+        <!-- Header -->
+        <div class="card-header text-center text-white rounded-top-4 py-4 "
+             style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+          <h3 class="mb-0 fw-bold">User Registration</h3><br>
+          <h6 class="text-primary" fw-bold>"Create your account and unlock new possibilities."</h6>
+        </div>
+
+        <div class="card-body p-4">
+   <!-- Messages -->
+
+                    <div *ngIf="!form.error && form.message"
+                        class="alert alert-success text-center">
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="form.successMessage"
+                        class="alert alert-success text-center">
+                        {{form.successMessage}}
+                    </div>
+
+                    <div *ngIf="form.error && form.message"
+                        class="alert alert-danger text-center">
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="form.errorMessage"
+                        class="alert alert-danger text-center">
+                        {{form.errorMessage}}
+                    </div>
+
+          <!-- Name Row -->
+          <div class="row">
+            <div class="col-6 mb-3">
+              <input class="form-control rounded-3"
+                     placeholder="First Name"
+                     [(ngModel)]="form.data.firstName">
+              <small class="text-danger">{{form.inputerror.firstName}}</small>
+            </div>
+
+            <div class="col-6 mb-3">
+              <input class="form-control rounded-3"
+                     placeholder="Last Name"
+                     [(ngModel)]="form.data.lastName">
+              <small class="text-danger">{{form.inputerror.lastName}}</small>
+            </div>
+          </div>
+
+          <!-- Login -->
+        <div class="mb-3">
+    <input class="form-control rounded-3"
+           placeholder="Login ID"
+           [(ngModel)]="form.data.loginId">
+
+    <small class="text-danger">{{form.inputerror.loginId}}</small>
+</div>
+
+          <!-- Password -->
+          <div class="mb-3">
+    <input type="password"
+           class="form-control rounded-3"
+           placeholder="Password"
+           [(ngModel)]="form.data.password">
+
+    <small class="text-danger">{{form.inputerror.password}}</small>
+</div>
+
+          <!-- DOB & Gender -->
+          <div class="row">
+            <div class="col-6 mb-3">
+              <input type="date"
+                     class="form-control rounded-3"
+                     [(ngModel)]="form.data.dob">
+              <small class="text-danger">{{form.inputerror.dob}}</small>
+            </div>
+
+            <div class="col-6 mb-3">
+              <select class="form-select rounded-3"
+                      [(ngModel)]="form.data.gender">
+                <option value="undefined">------------Select------------</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+              </select>
+              <small class="text-danger">{{form.inputerror.gender}}</small>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="mb-3">
+    <input class="form-control rounded-3"
+           maxlength="10"
+           placeholder="Mobile Number"
+           [(ngModel)]="form.data.phone">
+
+    <small class="text-danger">{{form.inputerror.phone}}</small>
+</div>
+
+          <!-- Buttons -->
+         <div class="row mt-3">
+    <div class="col-6">
+        <button class="btn text-white fw-semibold rounded-3 w-100"
+                style="background: linear-gradient(135deg,#13548d,#00f2fe);"
+                (click)="signUp()">
+            Sign Up
+        </button>
+    </div>
+
+    <div class="col-6">
+        <button class="btn btn-outline-success rounded-3 w-100"
+                (click)="reset()">
+            Reset
+        </button>
+    </div>
+</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

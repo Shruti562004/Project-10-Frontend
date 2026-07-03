@@ -1,101 +1,200 @@
+<div class="container d-flex justify-content-center align-items-center py-4" style="min-height:100vh;">
 
+    <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 col-11">
 
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add User</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update User</h1>
+        <div class="card shadow-lg border-0 rounded-4">
 
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
+            <!-- Header -->
+            <div class="card-header text-center text-white py-3 border-0 rounded-top-4"
+                style="background: linear-gradient(135deg,#2952d4,#0aa0d6);">
 
-    <table>
-        <tr>
-            <th align="left">First Name<span style="color: red">*</span></th>
-            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
-        </tr>
+                <i class="bi bi-person-plus fs-3"></i>
 
-        <tr>
-            <th align="left">Last Name<span style="color: red">*</span></th>
-            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
-        </tr>
+                <h4 *ngIf="!form.data.id" class="fw-bold mb-1">
+                    Add User
+                </h4>
 
-        <tr>
-            <th align="left">Login Id<span style="color: red">*</span></th>
-            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
-        </tr>
+                <h4 *ngIf="form.data.id>0" class="fw-bold mb-1">
+                    Update User
+                </h4>
 
-        <tr>
-            <th align="left">Password<span style="color: red">*</span></th>
-            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
-        </tr>
+                <small>Enter user details to create a new account</small>
 
-        <tr>
-            <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
-        </tr>
+            </div>
 
-        <tr>
-            <th align="left">Gender<span style="color: red">*</span></th>
-            <td>
-                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+            <div class="card-body p-3">
+
+                <!-- Messages -->
+                <div *ngIf="!form.error && form.message"
+                    class="alert alert-success py-2 text-center">
+                    {{form.message}}
+                </div>
+
+                <div *ngIf="form.error && form.message"
+                    class="alert alert-danger py-2 text-center">
+                    {{form.message}}
+                </div>
+
+                <!-- First Name & Last Name -->
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">First Name</label>
+                        <input class="form-control form-control-sm rounded-3"
+                            placeholder="First Name"
+                            [(ngModel)]="form.data.firstName">
+                        <small class="text-danger">{{form.inputerror.firstName}}</small>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Last Name</label>
+                        <input class="form-control form-control-sm rounded-3"
+                            placeholder="Last Name"
+                            [(ngModel)]="form.data.lastName">
+                        <small class="text-danger">{{form.inputerror.lastName}}</small>
+                    </div>
+                </div>
+
+                <!-- Login ID & Password -->
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Login ID</label>
+                        <input class="form-control form-control-sm rounded-3"
+                            placeholder="Login ID"
+                            [(ngModel)]="form.data.loginId">
+                        <small class="text-danger">{{form.inputerror.loginId}}</small>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Password</label>
+                        <input type="password"
+                            class="form-control form-control-sm rounded-3"
+                            placeholder="Password"
+                            [(ngModel)]="form.data.password">
+                        <small class="text-danger">{{form.inputerror.password}}</small>
+                    </div>
+                </div>
+
+                <!-- DOB & Gender -->
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Date of Birth</label>
+                        <input type="date"
+                            class="form-control form-control-sm rounded-3"
+                            [(ngModel)]="form.data.dob">
+                              <small class="text-danger">{{form.inputerror.dob}}</small>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Gender</label>
+                        <select class="form-select form-select-sm rounded-3"
+                            [(ngModel)]="form.data.gender">
                     <option value="undefined">------------Select------------</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
-        </tr>
+                          <small class="text-danger">{{form.inputerror.gender}}</small>
+                    </div>
+                </div>
 
-        <tr>
-            <th align="left">Role<span style="color: red">*</span></th>
-            <td>
-                <select name="roleId" [(ngModel)]="form.data.roleId" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.roleId}}</td>
-        </tr>
+                <!-- Role & Status -->
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Role</label>
+                        <select class="form-select form-select-sm rounded-3"
+                            [(ngModel)]="form.data.roleId">
+                              <option value="undefined">------------Select------------</option>
+                            <option *ngFor="let obj of form.preload.roleList"
+                                [value]="obj.key">
+                                {{obj.value}}
+                            </option>
+                        </select>
+                          <small class="text-danger">{{form.inputerror.roleId}}</small>
+                    </div>
 
-        <tr>
-            <th align="left">Mobile<span style="color: red">*</span></th>
-            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="Enter Mobile No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Alternate Mobile<span style="color: red">*</span></th>
-            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10" placeholder="Enter Alternate Mobile No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.alternateMobile}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Status<span style="color: red">*</span></th>
-            <td>
-                <select name="status" [(ngModel)]="form.data.status" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Status</label>
+                        <select class="form-select form-select-sm rounded-3"
+                            [(ngModel)]="form.data.status">
+                           <option value="undefined">------------Select------------</option>
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                 </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.status}}</td>
-        </tr>
+                          <small class="text-danger">{{form.inputerror.status}}</small>
+                    </div>
 
-        <tr></tr>
+                </div>
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-         
-            </td>
-        </tr>
-    </table>
+                <!-- Mobile & Alternate Mobile -->
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Mobile</label>
+                        <input class="form-control form-control-sm rounded-3"
+                            maxlength="10"
+                            placeholder="Mobile Number"
+                            [(ngModel)]="form.data.phone">
+                    </div>
+  <small class="text-danger">{{form.inputerror.phone}}</small>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label fw-semibold small">Alternate Mobile</label>
+                        <input class="form-control form-control-sm rounded-3"
+                            maxlength="10"
+                            placeholder="Alternate Mobile"
+                            [(ngModel)]="form.data.alternateMobile">
+                    </div>
+                      <small class="text-danger">{{form.inputerror.alternateMobile}}</small>
+                </div>
+
+                <hr class="my-3">
+
+                  <!-- Buttons -->
+
+<div class="row">
+
+  <!-- ADD MODE -->
+  <ng-container *ngIf="!form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-primary w-100 rounded-3"
+              (click)="submit()">
+        Save
+      </button>
+    </div>
+
+    <div class="col-6">
+      <button class="btn btn-outline-secondary w-100 rounded-3"
+              (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </ng-container>
+
+  <!-- EDIT MODE -->
+  <ng-container *ngIf="form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-success w-100 rounded-3"
+              (click)="submit()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-6">
+        <button type="button" (click)="forward('/userList')" class="btn btn-outline-secondary  w-100 rounded-3">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+    </div>
+
+  </ng-container>
+
 </div>
+               
 
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

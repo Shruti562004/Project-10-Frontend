@@ -20,7 +20,7 @@ export class BaseListCtl extends BaseCtl {
 
 
     override ngOnInit() {
-        this.preload();
+        this.preload();[]
         this.search();
     }
 

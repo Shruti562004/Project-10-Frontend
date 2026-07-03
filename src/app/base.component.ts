@@ -69,6 +69,9 @@ export class BaseCtl implements OnInit {
   }
 
   submit() {
+
+      console.log("Submit Clicked");
+  console.log(this.form.data);
     var _self = this;
     this.serviceLocator.httpService.post(
       this.api.save,
@@ -76,16 +79,18 @@ export class BaseCtl implements OnInit {
       function (res: any) {
         _self.form.message = '';
         _self.form.inputerror = {};
-        if (res.success) {
-          _self.form.message = res.result.message;
-          _self.form.data.id = res.result.data;
-        } else {
-          _self.form.error = true;
-          if (res.result.inputerror) {
-            _self.form.inputerror = res.result.inputerror;
-          }
-          _self.form.message = res.result.message;
-        }
+      if (res.success) {
+  _self.form.error = false;          // Add this
+  _self.form.message = res.result.message;
+  _self.form.inputerror = {};        // Clear validation errors
+  _self.form.data.id = res.result.data;
+} else {
+  _self.form.error = true;
+  if (res.result.inputerror) {
+    _self.form.inputerror = res.result.inputerror;
+  }
+  _self.form.message = res.result.message;
+}
       },
     );
   }

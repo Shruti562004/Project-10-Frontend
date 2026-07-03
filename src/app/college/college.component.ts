@@ -9,6 +9,8 @@ import { ServiceLocatorService } from '../service-locator.service';
 })
 export class CollegeComponent extends BaseCtl {
 
+  
+
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
     super(locator.endpoints.COLLEGE, locator, route);
   }

@@ -1,52 +1,125 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
 
+  <div class="card shadow border-0 overflow-hidden" style="width: 100%; max-width: 800px; border-radius: 12px;">
 
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Courier</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Courier</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    <div class="bg-primary text-white text-center py-4 position-relative">
+      <h3 class="mb-1 fw-bold">
+        <i class="bi bi-box-seam me-2"></i> <span *ngIf="!form.data.id">Add Courier</span>
+        <span *ngIf="form.data.id > 0">Update Courier</span>
+      </h3>
+      <p class="mb-0 opacity-75 small">Enter courier details</p>
     </div>
 
-    <table>
-        <tr>
-            <th align="left">SenderName<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="senderName" [(ngModel)]="form.data.senderName" placeholder="Enter senderName "></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.senderName}}</td>
-        </tr>
+    <div class="card-body p-4 bg-white">
 
-         <tr>
-            <th align="left">RecieverName<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="receiverName" [(ngModel)]="form.data.receiverName" placeholder="Enter recieverName "></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.receiverName}}</td>
-        </tr>
+     <!-- Success Message -->
+                    <div *ngIf="!form.error && form.message"
+                        class="alert alert-success">
+                        {{form.message}}
+                    </div>
 
-         <tr>
-            <th align="left">Tracking Number<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="trackingNumber" [(ngModel)]="form.data.trackingNumber" placeholder="Enter trackingNumber "></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.trackingNumber}}</td>
-        </tr>
+                    <!-- Error Message -->
+                    <div *ngIf="form.error && form.message"
+                        class="alert alert-danger">
+                        {{form.message}}
+                    </div>
 
-         <tr>
-            <th align="left">DeliveryStatus<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="deliveryStatus" [(ngModel)]="form.data.deliveryStatus" placeholder="Enter deliveryStatus "></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.deliveryStatus}}</td>
-        </tr>
+      <div class="row g-3">
+        
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">Sender Name <span class="text-danger">*</span></label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 [(ngModel)]="form.data.senderName"
+                 placeholder="Enter sender name"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.senderName}}</small>
+        </div>
 
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">Receiver Name <span class="text-danger">*</span></label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 [(ngModel)]="form.data.receiverName"
+                 placeholder="Enter receiver name"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.receiverName}}</small>
+        </div>
 
-       
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">Tracking Number <span class="text-danger">*</span></label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 [(ngModel)]="form.data.trackingNumber"
+                 placeholder="Enter tracking number"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.trackingNumber}}</small>
+        </div>
 
-        <tr></tr>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary mb-1">Delivery Status <span class="text-danger">*</span></label>
+          <input class="form-control py-2 shadow-sm"
+                 type="text"
+                 [(ngModel)]="form.data.deliveryStatus"
+                 placeholder="Enter delivery status"
+                 style="font-size: 0.9rem;">
+          <small class="text-danger d-block mt-1">{{form.inputerror.deliveryStatus}}</small>
+        </div>
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
+      </div>
 
-              <!-- <button (click)="forward('courselist')">list</button>-->
-            </td>
-        </tr>
-    </table>
+      <hr>
+
+                      
+   <!-- Buttons -->
+
+<div class="row">
+
+  <!-- ADD MODE -->
+  <ng-container *ngIf="!form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-primary w-100 rounded-3"
+              (click)="submit()">
+        Save
+      </button>
+    </div>
+<div class="col-6">
+
+                            <button
+                                class="btn btn-outline-secondary w-100 rounded-3"
+                                (click)="reset()">
+
+                                Reset
+
+                            </button>
+
+                        </div>
+
+  </ng-container>
+
+<!-- EDIT MODE -->
+  <ng-container *ngIf="form.data.id">
+
+      <div class="col-6">
+      <button class="btn btn-success w-100 rounded-3"
+              (click)="submit()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-6">
+        <button type="button" (click)="forward('/courierList')" class="btn btn-outline-secondary  w-100 rounded-3">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+    </div>
+
+  </ng-container>
+
+                        
+      </div>
+
+    </div>
+  </div>
 </div>
-

@@ -1,32 +1,240 @@
-<div *ngIf="isLogin()">
-    <h3><b>Hi, {{form.data.fname }} ( {{form.data.role}} )</b></h3>
-    <!-- <a (click)="forward()"><b>My Profile</b></a> | -->
-    <a [routerLink]="['/changepassword']"><b>Change Password</b></a> |
-    <a [routerLink]="['/user']"><b>Add User</b></a> |
+<!-- MAIN NAVBAR -->
+<div *ngIf="isLogin()"
+     class="container-fluid py-3 shadow px-3 fixed-top"
+     style="background: linear-gradient(135deg,#464f53,#012431,#024562); z-index:1050;">
 
-    <a [routerLink]="['/role']"><b>Add Role</b></a> |
+  <div class="d-flex flex-column flex-lg-row align-items-lg-center">
 
-    <a [routerLink]="['/college']"><b>Add College</b></a> |
-  
-    <a [routerLink]="['/student']"><b>Add Student</b></a> |
+    <!-- USER INFO -->
+    <h5 class="text-warning fw-bold mb-3 mb-lg-0 me-lg-4">
+      Hi, {{form.data.fname}} ({{form.data.role}})
+    </h5>
 
-    <a [routerLink]="['/marksheet']"><b>Add Marksheet</b></a> |
-   
-    <a [routerLink]="['/course']"><b>Add Course</b></a> |
-    |
-    <a [routerLink]="['/subject']"><b>Add Subject</b></a> |
-   
-    <a [routerLink]="['/timetable']"><b>Add Timetable</b></a> |
-   
-    <a [routerLink]="['/faculty']"><b>Add Faculty</b></a> |
-  
-    <!-- <a (click)="logout()">
-        <font color="blue"><b>Logout</b></font>
-    </a> -->
+    <!-- MENU -->
+    <div class="d-flex flex-wrap gap-2">
+
+      <!-- Dashboard -->
+      <a [routerLink]="['/dashboard']" class="btn btn-outline-light btn-sm">
+        {{ 'dashboard' | translate }}
+      </a>
+
+      <!-- My Profile -->
+      <a [routerLink]="['/myProfile']" class="btn btn-outline-light btn-sm">
+          {{ 'MyProfile' | translate }}
+      </a>
+
+      <!-- Change Password -->
+      <a [routerLink]="['/changePassword']" class="btn btn-outline-light btn-sm">
+        {{ 'Links.ChangePassword' | translate }}
+      </a>
+
+      <!-- USER -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'User' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/user']">{{ 'Links.AddUser' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/userList']">{{ 'Links.UserList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- ROLE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Role' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/role']">{{ 'Links.AddRole' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/roleList']">{{ 'Links.RoleList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- COLLEGE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'College' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/college']">{{ 'Links.AddCollege' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/collegeList']">{{ 'Links.CollegeList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- STUDENT -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Student' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/student']">{{ 'Links.AddStudent' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/studentList']">{{ 'Links.StudentList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- COURSE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Course' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/course']">{{ 'Links.AddCourse' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/courseList']">{{ 'Links.CourseList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- SUBJECT -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Subject' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/subject']">{{ 'Links.AddSubject' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/subjectList']">{{ 'Links.SubjectList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- FACULTY -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Faculty' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/faculty']">{{ 'Links.AddFaculty' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/facultyList']">{{ 'Links.FacultyList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- TIMETABLE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Timetable' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/timetable']">{{ 'Links.AddTimetable' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/timetableList']">{{ 'Links.TimetableList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- MARKSHEET -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Marksheet' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/marksheet']">{{ 'Links.AddMarksheet' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetList']">{{ 'Links.MarksheetList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetMeritList']">{{ 'MeritList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/getMarksheet']">{{ 'GetMarksheet' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- COURIER -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Courier' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/courier']">{{ 'Links.AddCourier' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/courierList']">{{ 'Links.AddCourier' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- VOICE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Voice' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/voice']">{{ 'Links.AddVoice' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/voiceList']">{{ 'Links.AddVoice' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- VEHICLE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Vehicle' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/vehicle']">{{ 'Links.AddVehicle' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/vehicleList']">{{ 'Links.AddVehicle' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- WATER -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Water' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/vehicle']">{{ 'Links.AddWater' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/vehicleList']">{{ 'Links.AddWater' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- JAVA DOCS FIXED -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+           {{ 'Java Docs' | translate }}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="assets/doc/index.html" target="_blank">
+              <i class="bi bi-journal-code me-2"></i>
+          {{ 'OpenJavaDocs' | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- LOGOUT -->
+      <a (click)="logout()" class="btn btn-danger btn-sm">
+         {{ 'Logout' | translate }}
+      </a>
+
+    </div>
+
+    <!-- LANGUAGE -->
+    <div class="ms-lg-3 mt-3 mt-lg-0">
+      <select class="form-select form-select-sm" #locale (change)="changeLocale(locale.value)">
+        <option value="0">{{ 'LocaleSelect.Select' | translate }}</option>
+        <option value="en">{{ 'LocaleSelect.English' | translate }}</option>
+        <option value="hi">{{ 'LocaleSelect.Hindi' | translate }}</option>
+      </select>
+    </div>
+
+  </div>
 </div>
-<div *ngIf="!isLogin()">
-    <h3>Hi, Guest</h3>
-   <!--- <a [routerLink]="['/dashboard']"><b>Dashboard</b></a> |
-    <a [routerLink]="['/login']"><b>Login</b></a>-->
+
+<!-- GUEST NAVBAR -->
+<div *ngIf="!isLogin()"
+     class="container-fluid py-3 shadow fixed-top"
+     style="background: linear-gradient(135deg,#464f53,#012431,#024562); z-index:1050;">
+
+  <div class="d-flex justify-content-between align-items-center">
+
+    <h5 class="text-warning fw-bold mb-0">
+      {{ 'Greetings.HiGuest' | translate }}
+    </h5>
+
+    <div class="d-flex gap-2">
+
+      <a [routerLink]="['/dashboard']" class="btn btn-outline-light btn-sm">
+        {{ 'dashboard' | translate }}
+      </a>
+
+      <a [routerLink]="['/login']" class="btn btn-success btn-sm">
+        {{ 'Login' | translate }}
+      </a>
+
+      <select class="form-select form-select-sm" #locale (change)="changeLocale(locale.value)">
+        <option value="0">{{ 'LocaleSelect.Select' | translate }}</option>
+        <option value="en">{{ 'LocaleSelect.English' | translate }}</option>
+        <option value="hi">{{ 'LocaleSelect.Hindi' | translate }}</option>
+      </select>
+
+    </div>
+
+  </div>
 </div>
-<hr>

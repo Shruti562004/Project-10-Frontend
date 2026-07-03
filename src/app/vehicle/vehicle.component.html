@@ -1,0 +1,153 @@
+<div class="container py-5" style="margin-top:120px;">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-md-10 col-sm-11">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header text-center text-white py-4"
+                    style="background:linear-gradient(90deg,#2952CC,#1DA1F2);">
+
+                    <h2 class="fw-bold mb-1">
+                        <i class="bi bi-building"></i>
+
+                        <span *ngIf="!form.data.id">Add vehicle</span>
+                        <span *ngIf="form.data.id>0">Update vehicle</span>
+
+                    </h2>
+
+                    <small>Enter vehicle details</small>
+
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <!-- Message -->
+                    <div *ngIf="!form.error && form.message"
+                        class="alert alert-success">
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="form.error && form.message"
+                        class="alert alert-danger">
+                        {{form.message}}
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Name -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Number <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="number"
+                                [(ngModel)]="form.data.number"
+                                placeholder="Enter vehicle number">
+
+                            <small class="text-danger">
+                                {{form.inputerror.number}}
+                            </small>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Type <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="type"
+                                [(ngModel)]="form.data.type"
+                                placeholder="Enter type">
+
+                            <small class="text-danger">
+                                {{form.inputerror.type}}
+                            </small>
+                        </div>
+
+                        <!-- State -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Model <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="model"
+                                [(ngModel)]="form.data.model"
+                                placeholder="Enter model">
+
+                            <small class="text-danger">
+                                {{form.inputerror.model}}
+                            </small>
+                        </div>
+
+                     
+
+                    </div>
+
+                    <hr>
+
+                   
+   <!-- Buttons -->
+
+<div class="row">
+
+  <!-- ADD MODE -->
+  <ng-container *ngIf="!form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-primary w-100 rounded-3"
+              (click)="submit()">
+        Save
+      </button>
+    </div>
+
+    <div class="col-6">
+      <button class="btn btn-outline-secondary w-100 rounded-3"
+              (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </ng-container>
+
+  <!-- EDIT MODE -->
+  <ng-container *ngIf="form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-success w-100 rounded-3"
+              (click)="submit()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-6">
+        <button type="button" (click)="forward('/vehicleList')" class="btn btn-outline-secondary  w-100 rounded-3">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+    </div>
+
+  </ng-container>
+
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,163 @@
+<div class="container d-flex justify-content-center py-4" style="margin-top:160px;">
+
+    <div class="card shadow-lg border-0 w-100" style="max-width:700px; border-radius:15px;">
+
+        <!-- Header -->
+        <div class="card-header text-center text-white py-3"
+            style="background:linear-gradient(135deg,#0d6efd,#0a58ca);">
+
+            <h3 class="fw-bold mb-0">
+                My Profile
+            </h3>
+
+        </div>
+
+        <!-- Body -->
+        <div class="card-body p-4">
+
+            <!-- Success/Error Message -->
+            <div *ngIf="form.message"
+                class="alert text-center"
+                [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+
+                {{form.message}}
+
+            </div>
+
+            <div class="row">
+
+                <!-- First Name -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">
+                        First Name <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="firstName"
+                        [(ngModel)]="form.data.firstName"
+                        placeholder="Enter First Name">
+
+                    <small class="text-danger">
+                        {{form.inputerror.firstName}}
+                    </small>
+                </div>
+
+                <!-- Last Name -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">
+                        Last Name <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="lastName"
+                        [(ngModel)]="form.data.lastName"
+                        placeholder="Enter Last Name">
+
+                    <small class="text-danger">
+                        {{form.inputerror.lastName}}
+                    </small>
+                </div>
+
+                <!-- Login ID -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">
+                        Login ID <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="loginId"
+                        [(ngModel)]="form.data.loginId"
+                        readonly     placeholder="Enter loginId">
+
+                    <small class="text-danger">
+                        {{form.inputerror.loginId}}
+                    </small>
+                </div>
+
+                <!-- DOB -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">
+                        Date of Birth <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="dob"
+                        [(ngModel)]="form.data.dob">
+
+                    <small class="text-danger">
+                        {{form.inputerror.dob}}
+                    </small>
+                </div>
+
+                <!-- Gender -->
+               <div class="mb-3">
+    <label class="form-label fw-semibold">
+        Gender <span class="text-danger">*</span>
+    </label>
+
+    <select
+        class="form-select"
+        name="gender"
+        [(ngModel)]="form.data.gender">
+
+        <option value="undefined">------------Select------------</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+    <small class="text-danger">
+        {{form.inputerror.gender}}
+    </small>
+</div>
+
+                <!-- Mobile -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">
+                        Mobile <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        maxlength="10"
+                        [(ngModel)]="form.data.phone"
+                        placeholder="Enter Mobile Number">
+
+                    <small class="text-danger">
+                        {{form.inputerror.phone}}
+                    </small>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-3">
+
+                <button
+                    class="btn btn-primary px-4"
+                    (click)="myProfile()">
+                    Save
+                </button>
+
+                <button
+                    class="btn btn-outline-secondary px-4"
+                    (click)="forward('/userList')">
+                    Back to List
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -21,7 +21,33 @@ import { SubjectListComponent } from './subject/subject-list.component';
 import { FacultyListComponent } from './faculty/faculty-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { MarksheetListComponent } from './marksheet/marksheet-list.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './login/signup.component';
+import { CourierListComponent } from './courier/courier-list.component';
+import { VoiceListComponent } from './voice/voice-list.component';
+import { ForgetPasswordComponent } from './login/forget-password.component';
+import { ChangePasswordComponent } from './user/change-password.component';
+import { MyprofileComponent } from './user/my-profile.component';
+import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.component';
+import { GetMarksheetComponent } from './marksheet/get-marksheet.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicle/vehicle-list.component';
+import { WaterComponent } from './water/water.component';
+import { WaterListComponent } from './water/water-list.component';
+
 const routes: Routes = [
+
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+
   {
     path: 'role',
     component: RoleComponent
@@ -107,7 +133,7 @@ const routes: Routes = [
   },
 
     {
-    path: 'facultylist',
+    path: 'facultyList',
     component: FacultyListComponent
   },
 
@@ -177,6 +203,80 @@ const routes: Routes = [
   {
     path: 'marksheetList',
     component: MarksheetListComponent
+  },
+  {
+    path: 'courierList',
+    component: CourierListComponent
+  },
+    {
+    path: 'voiceList',
+    component: VoiceListComponent
+  },
+
+ {
+    path: 'voice/:id',
+    component: VoiceComponent
+  },
+
+ {
+    path: 'courier/:id',
+    component: CourierComponent
+  },
+
+   {
+    path: 'login',
+    component: LoginComponent
+  },
+   {
+    path: 'signup',
+    component: SignupComponent
+  },
+   {
+    path: 'forgetPassword',
+    component: ForgetPasswordComponent
+  },
+  {
+    path: 'changePassword',
+    component:ChangePasswordComponent
+  },
+  {
+    path: 'myProfile',
+    component:MyprofileComponent
+  },
+    {
+    path: 'marksheetMeritList',
+    component:MarksheetMeritListComponent
+  },
+     {
+    path: 'getMarksheet',
+    component:GetMarksheetComponent
+  },
+  {
+    path: 'vehicle',
+    component:VehicleComponent
+  },
+    {
+    path: 'vehicleList',
+    component: VehicleListComponent
+  },
+
+    {
+    path: 'vehicle/:id',
+    component: VehicleComponent
+  },
+
+   {
+    path: 'water',
+    component:WaterComponent
+  },
+    {
+    path: 'waterList',
+    component:WaterListComponent
+  },
+
+    {
+    path: 'water/:id',
+    component: WaterComponent
   }
 ];
 

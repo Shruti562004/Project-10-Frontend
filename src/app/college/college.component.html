@@ -1,53 +1,188 @@
+<div class="container py-5" style="margin-top:120px;">
 
+    <div class="row justify-content-center">
 
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add College</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update College</h1>
+        <div class="col-lg-8 col-md-10 col-sm-11">
 
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header text-center text-white py-4"
+                    style="background:linear-gradient(90deg,#2952CC,#1DA1F2);">
+
+                    <h2 class="fw-bold mb-1">
+                        <i class="bi bi-building"></i>
+
+                        <span *ngIf="!form.data.id">Add College</span>
+                        <span *ngIf="form.data.id>0">Update College</span>
+
+                    </h2>
+
+                    <small>Enter college details</small>
+
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <!-- Message -->
+                    <div *ngIf="!form.error && form.message"
+                        class="alert alert-success">
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="form.error && form.message"
+                        class="alert alert-danger">
+                        {{form.message}}
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Name -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Name <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="name"
+                                [(ngModel)]="form.data.name"
+                                placeholder="Enter College Name">
+
+                            <small class="text-danger">
+                                {{form.inputerror.name}}
+                            </small>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Address <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="address"
+                                [(ngModel)]="form.data.address"
+                                placeholder="Enter Address">
+
+                            <small class="text-danger">
+                                {{form.inputerror.address}}
+                            </small>
+                        </div>
+
+                        <!-- State -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                State <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="state"
+                                [(ngModel)]="form.data.state"
+                                placeholder="Enter State">
+
+                            <small class="text-danger">
+                                {{form.inputerror.state}}
+                            </small>
+                        </div>
+
+                        <!-- City -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                City <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="city"
+                                [(ngModel)]="form.data.city"
+                                placeholder="Enter City">
+
+                            <small class="text-danger">
+                                {{form.inputerror.city}}
+                            </small>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                Phone No <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                maxlength="10"
+                                name="phoneNo"
+                                [(ngModel)]="form.data.phoneNo"
+                                placeholder="Enter Phone No">
+
+                            <small class="text-danger">
+                                {{form.inputerror.phoneNo}}
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                   
+   <!-- Buttons -->
+
+<div class="row">
+
+  <!-- ADD MODE -->
+  <ng-container *ngIf="!form.data.id">
+
+    <div class="col-6">
+      <button class="btn btn-primary w-100 rounded-3"
+              (click)="submit()">
+        Save
+      </button>
     </div>
 
-    <table>
-        <tr>
-            <th align="left">Name<span style="color: red">*</span></th>
-            <td><input type="text" name="name" [(ngModel)]="form.data.name" placeholder="Enter College Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.name}}</td>
-        </tr>
+    <div class="col-6">
+      <button class="btn btn-outline-secondary w-100 rounded-3"
+              (click)="reset()">
+        Reset
+      </button>
+    </div>
 
-        <tr>
-            <th align="left">Address<span style="color: red">*</span></th>
-            <td><input type="text" name="address" [(ngModel)]="form.data.address" placeholder="Enter Address"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.address}}</td>
-        </tr>
+  </ng-container>
 
-        <tr>
-            <th align="left">State<span style="color: red">*</span></th>
-            <td><input type="text" name="state" [(ngModel)]="form.data.state" placeholder="Enter State"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.state}}</td>
-        </tr>
+  <!-- EDIT MODE -->
+  <ng-container *ngIf="form.data.id">
 
-        <tr>
-            <th align="left">City<span style="color: red">*</span></th>
-            <td><input type="text" name="city" [(ngModel)]="form.data.city" placeholder="Enter City"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.city}}</td>
-        </tr>
+    <div class="col-6">
+      <button class="btn btn-success w-100 rounded-3"
+              (click)="submit()">
+        Update
+      </button>
+    </div>
 
-        <tr>
-            <th align="left">Phone No<span style="color: red">*</span></th>
-            <td><input type="text" name="phoneNo" [(ngModel)]="form.data.phoneNo" maxlength="10" placeholder="Enter Phone No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.phoneNo}}</td>
-        </tr>
+    <div class="col-6">
+        <button type="button" (click)="forward('/collegeList')" class="btn btn-outline-secondary  w-100 rounded-3">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+    </div>
 
-        <tr></tr>
+  </ng-container>
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-              <!--  <button (click)="forward('/collegelist')">list</button>-->
-            </td>
-        </tr>
-    </table>
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

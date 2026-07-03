@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpServiceService } from './http-service.service';
 import { EndpointServiceService } from './endpoint-service.service';
 import { ServiceLocatorService } from './service-locator.service';
@@ -29,6 +29,30 @@ import { TimetableListComponent } from './timetable/timetable-list.component';
 import { FacultyListComponent } from './faculty/faculty-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MarksheetListComponent } from './marksheet/marksheet-list.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './login/signup.component';
+import { AuthService } from './auth-service.service';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CourierListComponent } from './courier/courier-list.component';
+import { VoiceListComponent } from './voice/voice-list.component';
+import { ForgetPasswordComponent } from './login/forget-password.component';
+import { ChangePasswordComponent } from './user/change-password.component';
+import { MyprofileComponent } from './user/my-profile.component';
+import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.component';
+import { GetMarksheetComponent } from './marksheet/get-marksheet.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicle/vehicle-list.component';
+import { WaterComponent } from './water/water.component';
+import { WaterListComponent } from './water/water-list.component';
+
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 @NgModule({
   declarations: [
@@ -55,14 +79,40 @@ import { MarksheetListComponent } from './marksheet/marksheet-list.component';
     FacultyListComponent,
     FooterComponent,
     MarksheetListComponent,
+    LoginComponent,
+    DashboardComponent,
+    SignupComponent,
+    CourierListComponent,
+    VoiceListComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent,
+MyprofileComponent,
+MarksheetMeritListComponent,
+GetMarksheetComponent,
+VehicleComponent,
+VehicleListComponent,
+WaterComponent,
+WaterListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
+
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthService, multi: true
+    },
+
      HttpServiceService,
     EndpointServiceService,
     ServiceLocatorService
