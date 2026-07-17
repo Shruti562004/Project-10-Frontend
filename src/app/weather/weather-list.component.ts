@@ -4,13 +4,13 @@ import { BaseListCtl } from '../base-list.component';
 import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
-  selector: 'app-water-list',
-  templateUrl: './water-list.component.html'
+  selector: 'app-weather-list',
+  templateUrl: './weather-list.component.html'
 })
-export class WaterListComponent extends BaseListCtl {
+export class WeatherListComponent extends BaseListCtl {
 
   constructor(locator: ServiceLocatorService, route: ActivatedRoute) {
-    super(locator.endpoints.WATER, locator, route);
+    super(locator.endpoints.WEATHER, locator, route);
   }
 
 }

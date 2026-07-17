@@ -17,27 +17,39 @@
 
                 <div class="card-body p-4">
 
-                    <!-- Messages -->
+               <!-- Success Message -->
+<div *ngIf="!form.error && form.message"
+     class="alert alert-success alert-dismissible fade show text-center"
+     role="alert">
+  {{form.message}}
+  <button type="button" class="btn-close"
+          (click)="form.message=''"></button>
+</div>
 
-                    <div *ngIf="!form.error && form.message"
-                        class="alert alert-success text-center">
-                        {{form.message}}
-                    </div>
+<div *ngIf="form.successMessage"
+     class="alert alert-success alert-dismissible fade show text-center"
+     role="alert">
+  {{form.successMessage}}
+  <button type="button" class="btn-close"
+          (click)="form.successMessage=''"></button>
+</div>
 
-                    <div *ngIf="form.successMessage"
-                        class="alert alert-success text-center">
-                        {{form.successMessage}}
-                    </div>
+<!-- Error Message -->
+<div *ngIf="form.error && form.message"
+     class="alert alert-danger alert-dismissible fade show text-center"
+     role="alert">
+  {{form.message}}
+  <button type="button" class="btn-close"
+          (click)="form.message=''"></button>
+</div>
 
-                    <div *ngIf="form.error && form.message"
-                        class="alert alert-danger text-center">
-                        {{form.message}}
-                    </div>
-
-                    <div *ngIf="form.errorMessage"
-                        class="alert alert-danger text-center">
-                        {{form.errorMessage}}
-                    </div>
+<div *ngIf="form.errorMessage"
+     class="alert alert-danger alert-dismissible fade show text-center"
+     role="alert">
+  {{form.errorMessage}}
+  <button type="button" class="btn-close"
+          (click)="form.errorMessage=''"></button>
+</div>
 
                     <!-- Login ID -->
 

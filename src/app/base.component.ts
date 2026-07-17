@@ -13,6 +13,9 @@ export class BaseCtl implements OnInit {
     data: { id: null }, //form data
     searchParams: {}, //search form
     preload: [], // preload data
+
+
+    
     list: [], // search list
     pageNo: 0,
     nextListSize: 0,
@@ -26,6 +29,8 @@ export class BaseCtl implements OnInit {
     deleteMany: '',
     preload: '',
   };
+
+  public datepicker: any = {};
 
   initApi(ep: any) {
     this.api.endpoint = ep;
@@ -49,11 +54,21 @@ export class BaseCtl implements OnInit {
     });
   }
 
+  databaseDown: string | null = null;
+
   ngOnInit(): void {
+    this.databaseDown = localStorage.getItem('DatabaseDown');
     this.preload();
-      if (this.form.data.id && this.form.data.id > 0) {
-            this.display();
-        }
+    if (this.form.data.id && this.form.data.id > 0) {
+      this.display();
+    }
+
+    let today = new Date();
+    let maxYear = today.getFullYear() - 18;
+
+    this.datepicker = {
+      max: new Date(maxYear, 11, 31).toISOString().split('T')[0],
+    };
   }
 
   preload() {
@@ -68,45 +83,56 @@ export class BaseCtl implements OnInit {
     });
   }
 
-  submit() {
-
-      console.log("Submit Clicked");
-  console.log(this.form.data);
+  display() {
     var _self = this;
-    this.serviceLocator.httpService.post(
-      this.api.save,
-      this.form.data,
+    this.serviceLocator.httpService.get(
+      _self.api.get + '/' + _self.form.data.id,
       function (res: any) {
-        _self.form.message = '';
-        _self.form.inputerror = {};
-      if (res.success) {
-  _self.form.error = false;          // Add this
-  _self.form.message = res.result.message;
-  _self.form.inputerror = {};        // Clear validation errors
-  _self.form.data.id = res.result.data;
-} else {
-  _self.form.error = true;
-  if (res.result.inputerror) {
-    _self.form.inputerror = res.result.inputerror;
-  }
-  _self.form.message = res.result.message;
-}
+        if (res.success) {
+          _self.form.data = res.result.data;
+        } else {
+          _self.form.error = true;
+          _self.form.message = res.result.message;
+        }
       },
     );
   }
 
-    display() {
-        var _self = this;
-        this.serviceLocator.httpService.get(_self.api.get + "/" + _self.form.data.id, function (res: any) {
-            if (res.success) {
-                _self.form.data = res.result.data;
-            } else {
-                _self.form.error = true;
-                _self.form.message = res.result.message;
-            }
-        });
-    }
+  submit(callback?: (id: any) => void) {
+    var _self = this;
+  console.log("Save button clicked");
+    this.serviceLocator.httpService.post(this.api.save, this.form.data,function (res: any) {
+        // reset
+        _self.form.message = '';
+        _self.form.inputerror = {};
+        _self.form.error = false;
 
+        if (res.success) {
+          // ✅ success message
+          _self.form.message = res.result.message;
+
+          // ✅ ID set (IMPORTANT)
+          _self.form.data.id = res.result.data;
+
+          // ✅ callback call (for image upload etc.)
+          if (callback) {
+            callback(_self.form.data.id);
+          }
+        } else {
+          // ❌ validation error
+          _self.form.error = true;
+
+          if (res.result.inputerror) {
+            _self.form.inputerror = res.result.inputerror;
+          }
+
+          _self.form.message = res.result.message;
+
+          console.log('Validation Error:', res.result);
+        }
+      },
+    );
+  }
   search() {
     var _self = this;
     this.serviceLocator.httpService.post(
@@ -127,27 +153,31 @@ export class BaseCtl implements OnInit {
     );
   }
 
- deleteMany(id: any) {
-        var _self = this;
-        this.serviceLocator.httpService.post(_self.api.deleteMany + "/" + id, this.form.searchParams, function (res: any) {
-            _self.form.message = '';
-            _self.form.list = [];
-            if (res.success) {
-                _self.form.error = false;
-                _self.form.message = res.result.message;
-                _self.form.list = res.result.data;
-                _self.form.nextListSize = res.result.nextListSize;
-            } else {
-                _self.form.error = true;
-                _self.form.message = res.result.message;
-            }
-        });
-    }
+  deleteMany(id: any) {
+    var _self = this;
+    this.serviceLocator.httpService.post(
+      _self.api.deleteMany + '/' + id,
+      this.form.searchParams,
+      function (res: any) {
+        _self.form.message = '';
+        _self.form.list = [];
+        if (res.success) {
+          _self.form.error = false;
+          _self.form.message = res.result.message;
+          _self.form.list = res.result.data;
+          _self.form.nextListSize = res.result.nextListSize;
+        } else {
+          _self.form.error = true;
+          _self.form.message = res.result.message;
+        }
+      },
+    );
+  }
 
+  forward(page: any) {
+    this.serviceLocator.forward(page);
+  }
 
-    forward(page: any) {
-        this.serviceLocator.forward(page);
-    }
   reset() {
     location.reload();
   }

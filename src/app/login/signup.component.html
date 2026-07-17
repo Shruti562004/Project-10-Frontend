@@ -13,27 +13,34 @@
         </div>
 
         <div class="card-body p-4">
-   <!-- Messages -->
+  <!-- Message -->
+<div *ngIf="!form.error && form.message"
+     class="alert alert-success alert-dismissible fade show position-relative">
 
-                    <div *ngIf="!form.error && form.message"
-                        class="alert alert-success text-center">
-                        {{form.message}}
-                    </div>
+    {{ form.message }}
 
-                    <div *ngIf="form.successMessage"
-                        class="alert alert-success text-center">
-                        {{form.successMessage}}
-                    </div>
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
 
-                    <div *ngIf="form.error && form.message"
-                        class="alert alert-danger text-center">
-                        {{form.message}}
-                    </div>
+</div>
 
-                    <div *ngIf="form.errorMessage"
-                        class="alert alert-danger text-center">
-                        {{form.errorMessage}}
-                    </div>
+<div *ngIf="form.error && form.message"
+     class="alert alert-danger alert-dismissible fade show position-relative">
+
+    {{ form.message }}
+
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
+
+</div>
 
           <!-- Name Row -->
           <div class="row">

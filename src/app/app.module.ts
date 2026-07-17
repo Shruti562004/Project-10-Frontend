@@ -46,6 +46,10 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
 import { WaterComponent } from './water/water.component';
 import { WaterListComponent } from './water/water-list.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherListComponent } from './weather/weather-list.component';
+import { DroneComponent } from './drone/drone.component';
+import { DroneListComponent } from './drone/drone-list.component';
 
 
 
@@ -92,10 +96,14 @@ GetMarksheetComponent,
 VehicleComponent,
 VehicleListComponent,
 WaterComponent,
-WaterListComponent
+WaterListComponent,
+WeatherComponent,
+WeatherListComponent,
+DroneComponent,
+DroneListComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

@@ -6,16 +6,34 @@
         <h1 class="fw-bold text-primary">Marksheet List</h1>
     </div>
 
-    <!-- Messages -->
-    <div class="text-center mb-3" style="min-height:30px;">
-        <h5 class="text-success" *ngIf="!form.error && form.message">
-            {{form.message}}
-        </h5>
+      <!-- Message -->
+<div *ngIf="!form.error && form.message"
+     class="alert alert-success alert-dismissible fade show position-relative">
 
-        <h5 class="text-danger" *ngIf="form.error && form.message">
-            {{form.message}}
-        </h5>
-    </div>
+    {{ form.message }}
+
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
+
+</div>
+
+<div *ngIf="form.error && form.message"
+     class="alert alert-danger alert-dismissible fade show position-relative">
+
+    {{ form.message }}
+
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
+
+</div>
 
     <!-- Search Section -->
     <div class="row justify-content-center align-items-center g-2 mb-4">

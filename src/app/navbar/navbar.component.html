@@ -1,7 +1,7 @@
 <!-- MAIN NAVBAR -->
 <div *ngIf="isLogin()"
      class="container-fluid py-3 shadow px-3 fixed-top"
-     style="background: linear-gradient(135deg,#464f53,#012431,#024562); z-index:1050;">
+     style="background: linear-gradient(135deg,#464f53,#012431,#024562);">
 
   <div class="d-flex flex-column flex-lg-row align-items-lg-center">
 
@@ -19,7 +19,7 @@
       </a>
 
       <!-- My Profile -->
-      <a [routerLink]="['/myProfile']" class="btn btn-outline-light btn-sm">
+      <a (click)="forward()"  class="btn btn-outline-light btn-sm">
           {{ 'MyProfile' | translate }}
       </a>
 
@@ -136,7 +136,7 @@
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/courier']">{{ 'Links.AddCourier' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/courierList']">{{ 'Links.AddCourier' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/courierList']">{{ 'Links.CourierList' | translate }}</a></li>
         </ul>
       </div>
 
@@ -147,7 +147,7 @@
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/voice']">{{ 'Links.AddVoice' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/voiceList']">{{ 'Links.AddVoice' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/voiceList']">{{ 'Links.VoiceList' | translate }}</a></li>
         </ul>
       </div>
 
@@ -158,7 +158,7 @@
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/vehicle']">{{ 'Links.AddVehicle' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/vehicleList']">{{ 'Links.AddVehicle' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/vehicleList']">{{ 'Links.VehicleList' | translate }}</a></li>
         </ul>
       </div>
 
@@ -168,12 +168,35 @@
           {{'Water' | translate}}
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['/vehicle']">{{ 'Links.AddWater' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/vehicleList']">{{ 'Links.AddWater' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/water']">{{ 'Links.AddWater' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/waterList']">{{ 'Links.WaterList' | translate }}</a></li>
         </ul>
       </div>
 
-      <!-- JAVA DOCS FIXED -->
+        <!-- Weather -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Weather' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/weather']">{{ 'Links.AddWeather' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/weatherList']">{{ 'Links.WeatherList' | translate }}</a></li>
+        </ul>
+      </div>
+
+     <!-- Weather -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Drone' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/drone']">{{ 'Links.AddDrone' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/droneList']">{{ 'Links.DroneList' | translate }}</a></li>
+        </ul>
+      </div>
+
+
+      <!-- JAVA DOCS FIXED -
       <div class="dropdown">
         <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
            {{ 'Java Docs' | translate }}
@@ -186,7 +209,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </div>-->
 
       <!-- LOGOUT -->
       <a (click)="logout()" class="btn btn-danger btn-sm">
@@ -210,7 +233,7 @@
 <!-- GUEST NAVBAR -->
 <div *ngIf="!isLogin()"
      class="container-fluid py-3 shadow fixed-top"
-     style="background: linear-gradient(135deg,#464f53,#012431,#024562); z-index:1050;">
+     style="background: linear-gradient(135deg,#464f53,#012431,#024562);">
 
   <div class="d-flex justify-content-between align-items-center">
 

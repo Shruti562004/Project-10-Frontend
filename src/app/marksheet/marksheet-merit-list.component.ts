@@ -45,18 +45,17 @@ export class MarksheetMeritListComponent extends BaseCtl {
     );
   }
 
-  // printReport() {
-  //   const token = localStorage.getItem('token');
+ printReport() {
+    const token = localStorage.getItem('token');
 
-  //   if (!token) {
-  //     alert("User not logged in");
-  //     return;
-  //   }
+    if (!token) {
+      alert("User not logged in");
+      return;
+    }
 
-  //   this.httpservice.getReport(
-  //     "http://localhost:8081/jasper/report",
-  //     token
-  //   );
-  // }
-
+    this.httpservice.getReport(
+      "http://localhost:8080/jasper/report",
+      token
+    );
+  }
 }

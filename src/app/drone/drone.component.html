@@ -13,12 +13,12 @@
                     <h2 class="fw-bold mb-1">
                         <i class="bi bi-journal-bookmark-fill"></i>
 
-                        <span *ngIf="!form.data.id">Add Course</span>
-                        <span *ngIf="form.data.id>0">Update Course</span>
+                        <span *ngIf="!form.data.id">Add Drone</span>
+                        <span *ngIf="form.data.id>0">Update Drone</span>
 
                     </h2>
 
-                    <small>Enter course details</small>
+                    <small>Enter Drone details</small>
 
                 </div>
 
@@ -54,9 +54,29 @@
 
 </div>
 
-                    <div class="row">
 
-                        <!-- Course Name -->
+   <div class="row">
+
+                        <!-- Drone Name -->
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Code <span class="text-danger">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="code"
+                                [(ngModel)]="form.data.code"
+                                placeholder="Enter Drone Code">
+
+                            <small class="text-danger">
+                                {{form.inputerror.code}}
+                            </small>
+
+                        </div>
+                        <!-- Drone Name -->
                         <div class="col-md-6 mb-3">
 
                             <label class="form-label fw-semibold">
@@ -68,7 +88,7 @@
                                 class="form-control"
                                 name="name"
                                 [(ngModel)]="form.data.name"
-                                placeholder="Enter Course Name">
+                                placeholder="Enter Drone Name">
 
                             <small class="text-danger">
                                 {{form.inputerror.name}}
@@ -80,13 +100,13 @@
                         <div class="col-md-6 mb-3">
 
                             <label class="form-label fw-semibold">
-                                Duration <span class="text-danger">*</span>
+                                Zone <span class="text-danger">*</span>
                             </label>
 
                             <select
                                 class="form-select"
-                                name="duration"
-                                [(ngModel)]="form.data.duration">
+                                name="zone"
+                                [(ngModel)]="form.data.zone">
 
                                 <option value="undefined">
                                     ------------Select------------
@@ -101,7 +121,7 @@
                             </select>
 
                             <small class="text-danger">
-                                {{form.inputerror.duration}}
+                                {{form.inputerror.zone}}
                             </small>
 
                         </div>
@@ -110,19 +130,19 @@
                         <div class="col-12 mb-3">
 
                             <label class="form-label fw-semibold">
-                                Description <span class="text-danger">*</span>
+                                Status <span class="text-danger">*</span>
                             </label>
 
                             <textarea
                                 class="form-control"
                                 rows="4"
-                                name="description"
-                                [(ngModel)]="form.data.description"
-                                placeholder="Enter Short Description">
+                                name="status"
+                                [(ngModel)]="form.data.status"
+                                placeholder="Enter Short status">
                             </textarea>
 
                             <small class="text-danger">
-                                {{form.inputerror.description}}
+                                {{form.inputerror.status}}
                             </small>
 
                         </div>
@@ -165,7 +185,7 @@
     </div>
 
     <div class="col-6">
-        <button type="button" (click)="forward('/courseList')" class="btn btn-outline-secondary  w-100 rounded-3">
+        <button type="button" (click)="forward('/DroneList')" class="btn btn-outline-secondary  w-100 rounded-3">
                     <i class="bi bi-list-ul me-1"></i>
                     List
                 </button>

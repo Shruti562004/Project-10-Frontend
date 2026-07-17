@@ -35,253 +35,280 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
 import { WaterComponent } from './water/water.component';
 import { WaterListComponent } from './water/water-list.component';
-
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherListComponent } from './weather/weather-list.component';
+import { DroneComponent } from './drone/drone.component';
+import { DroneListComponent } from './drone/drone-list.component';
 const routes: Routes = [
-
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard'
+    redirectTo: 'dashboard',
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
 
   {
     path: 'role',
-    component: RoleComponent
+    component: RoleComponent,
   },
 
-   {
+  {
     path: 'role/:id',
-    component: RoleComponent
+    component: RoleComponent,
   },
 
   {
     path: 'user',
-    component: UserComponent
+    component: UserComponent,
   },
 
-   {
+  {
     path: 'user/:id',
-    component: UserComponent
+    component: UserComponent,
   },
 
   {
     path: 'college',
-    component: CollegeComponent
+    component: CollegeComponent,
   },
 
-    {
+  {
     path: 'college/:id',
-    component: CollegeComponent
+    component: CollegeComponent,
   },
 
-   {
+  {
     path: 'student',
-    component: StudentComponent
+    component: StudentComponent,
   },
 
-   {
+  {
     path: 'student/:id',
-    component: StudentComponent
+    component: StudentComponent,
   },
-   {
+  {
     path: 'marksheet',
-    component: MarksheetComponent
+    component: MarksheetComponent,
   },
 
-   {
+  {
     path: 'marksheet/:id',
-    component: MarksheetComponent
+    component: MarksheetComponent,
   },
 
-   {
+  {
     path: 'course',
-    component: CourseComponent
+    component: CourseComponent,
   },
 
-   {
+  {
     path: 'course/:id',
-    component: CourseComponent
+    component: CourseComponent,
   },
 
-   {
+  {
     path: 'subject',
-    component: SubjectComponent
+    component: SubjectComponent,
   },
 
-    {
+  {
     path: 'subject/:id',
-    component: SubjectComponent
+    component: SubjectComponent,
   },
 
-   {
+  {
     path: 'timetable',
-    component: TimetableComponent
+    component: TimetableComponent,
   },
 
-    {
+  {
     path: 'timetable/:id',
-    component: TimetableComponent
+    component: TimetableComponent,
   },
 
   {
     path: 'faculty',
-    component: FacultyComponent
+    component: FacultyComponent,
   },
 
-    {
+  {
     path: 'facultyList',
-    component: FacultyListComponent
+    component: FacultyListComponent,
   },
 
-    {
+  {
     path: 'faculty/:id',
-    component: FacultyComponent
-  }, 
+    component: FacultyComponent,
+  },
   {
     path: 'courier',
-    component: CourierComponent
+    component: CourierComponent,
   },
   {
     path: 'voice',
-    component: VoiceComponent
+    component: VoiceComponent,
   },
   {
     path: 'navbar',
-    component: NavbarComponent
+    component: NavbarComponent,
   },
 
-   {
+  {
     path: 'roleList',
-    component: RoleListComponent
-  }
-  ,
+    component: RoleListComponent,
+  },
 
-   {
+  {
     path: 'userList',
-    component: UserListComponent
-  }
-  ,
+    component: UserListComponent,
+  },
 
-
-   {
+  {
     path: 'collegeList',
-    component: CollegeListComponent
+    component: CollegeListComponent,
   },
 
-  
-   {
+  {
     path: 'studentList',
-    component: StudentListComponent
+    component: StudentListComponent,
   },
 
-  
-  
-   {
+  {
     path: 'courseList',
-    component: CourseListComponent
+    component: CourseListComponent,
   },
 
-  
-  
-   {
+  {
     path: 'subjectList',
-    component: SubjectListComponent
+    component: SubjectListComponent,
   },
   {
     path: 'facultyList',
-    component: FacultyListComponent
+    component: FacultyListComponent,
   },
   {
     path: 'timetableList',
-    component: TimetableListComponent
+    component: TimetableListComponent,
   },
-  
+
   {
     path: 'marksheetList',
-    component: MarksheetListComponent
+    component: MarksheetListComponent,
   },
   {
     path: 'courierList',
-    component: CourierListComponent
+    component: CourierListComponent,
   },
-    {
+  {
     path: 'voiceList',
-    component: VoiceListComponent
+    component: VoiceListComponent,
   },
 
- {
+  {
     path: 'voice/:id',
-    component: VoiceComponent
+    component: VoiceComponent,
   },
 
- {
+  {
     path: 'courier/:id',
-    component: CourierComponent
+    component: CourierComponent,
   },
 
-   {
+  {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
-   {
+  {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
   },
-   {
+  {
     path: 'forgetPassword',
-    component: ForgetPasswordComponent
+    component: ForgetPasswordComponent,
   },
   {
     path: 'changePassword',
-    component:ChangePasswordComponent
+    component: ChangePasswordComponent,
   },
   {
     path: 'myProfile',
-    component:MyprofileComponent
+    component: MyprofileComponent,
   },
-    {
+  {
+    path: 'myProfile/:id',
+    component: MyprofileComponent,
+  },
+  {
     path: 'marksheetMeritList',
-    component:MarksheetMeritListComponent
+    component: MarksheetMeritListComponent,
   },
-     {
+  {
     path: 'getMarksheet',
-    component:GetMarksheetComponent
+    component: GetMarksheetComponent,
   },
   {
     path: 'vehicle',
-    component:VehicleComponent
+    component: VehicleComponent,
   },
-    {
+  {
     path: 'vehicleList',
-    component: VehicleListComponent
+    component: VehicleListComponent,
   },
 
-    {
+  {
     path: 'vehicle/:id',
-    component: VehicleComponent
+    component: VehicleComponent,
   },
 
-   {
+  {
     path: 'water',
-    component:WaterComponent
+    component: WaterComponent,
   },
-    {
+  {
     path: 'waterList',
-    component:WaterListComponent
+    component: WaterListComponent,
   },
 
-    {
+  {
     path: 'water/:id',
-    component: WaterComponent
+    component: WaterComponent,
+  },
+  
+  {
+    path: 'weather',
+    component: WeatherComponent,
+  },
+   {
+    path: 'weatherList',
+    component: WeatherListComponent,
+  },
+
+  {
+    path: 'weather/:id',
+    component: WeatherComponent,
+  }
+,
+
+  {
+    path: 'drone',
+    component:DroneComponent,
+  },
+   {
+    path: 'droneList',
+    component: DroneListComponent,
+  },
+
+  {
+    path: 'drone/:id',
+    component: DroneComponent,
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

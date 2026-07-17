@@ -49,8 +49,7 @@ constructor(private translate: TranslateService, private httpService: HttpServic
   }
 
    forward() {
-    this.form.data.userId = localStorage.getItem("userId");
-    this.servicelocator.forward("/myProfile/" + this.form.data.userId);
-    console.log("userId")
+     this.form.data.id = localStorage.getItem("userId");
+    this.servicelocator.forward("/myProfile/" + this.form.data.id);
   }
-}
+} 

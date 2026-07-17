@@ -14,6 +14,23 @@ export class MyprofileComponent extends BaseCtl {
   ) {
     super(locator.endpoints.USER, locator, route);
   }
+
+  // override display(): void {
+  //   var _self = this;
+  //   _self.form.data.id = localStorage.getItem('userId');
+  //   this.serviceLocator.httpService.get(
+  //     _self.api.get + '/' + _self.form.data.id,
+  //     function (res: any) {
+  //       if (res.success) {
+  //         _self.form.data = res.result.data;
+  //       } else {
+  //         _self.form.error = true;
+  //         _self.form.message = res.result.message;
+  //       }
+  //     },
+  //   );
+  // }
+
   myProfile() {
     var _self = this;
     this.serviceLocator.httpService.post(

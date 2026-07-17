@@ -14,18 +14,34 @@
 
         <div class="card-body">
 
-            <!-- Error -->
-            <div class="alert alert-danger"
-                *ngIf="form.error && form.message">
-                {{form.message}}
-            </div>
+             <!-- Message -->
+<div *ngIf="!form.error && form.message"
+     class="alert alert-success alert-dismissible fade show position-relative">
 
-            <!-- Success -->
-            <div class="alert alert-success"
-                *ngIf="!form.error && form.message">
-                {{form.message}}
-            </div>
+    {{ form.message }}
 
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
+
+</div>
+
+<div *ngIf="form.error && form.message"
+     class="alert alert-danger alert-dismissible fade show position-relative">
+
+    {{ form.message }}
+
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
+
+</div>
             <form (ngSubmit)="go()">
 
                 <div class="row g-3 align-items-end">
