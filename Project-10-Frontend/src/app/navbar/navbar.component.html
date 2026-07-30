@@ -195,6 +195,27 @@
         </ul>
       </div>
 
+      <!-- FEE -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Fee' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/fee']">{{ 'Links.AddFee' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/feeList']">{{ 'Links.FeeList' | translate }}</a></li>
+        </ul>
+      </div>
+
+        <!-- light -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Light' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/light']">{{ 'Links.AddLight' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/lightList']">{{ 'Links.LightList' | translate }}</a></li>
+        </ul>
+      </div>
 
       <!-- JAVA DOCS FIXED -
       <div class="dropdown">

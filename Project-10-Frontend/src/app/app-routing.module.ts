@@ -39,6 +39,10 @@ import { WeatherComponent } from './weather/weather.component';
 import { WeatherListComponent } from './weather/weather-list.component';
 import { DroneComponent } from './drone/drone.component';
 import { DroneListComponent } from './drone/drone-list.component';
+import { LightComponent } from './light/light.component';
+import { LightListComponent } from './light/light-list.component';
+import { FeeListComponent } from './fee/fee-list.component';
+import { FeeComponent } from './fee/fee.component';
 const routes: Routes = [
   {
     path: '',
@@ -304,6 +308,34 @@ const routes: Routes = [
   {
     path: 'drone/:id',
     component: DroneComponent,
+  } ,
+
+   {
+    path: 'light',
+    component:LightComponent
+  },
+   {
+    path: 'lightList',
+    component: LightListComponent,
+  },
+
+  {
+    path: 'light/:id',
+    component: LightComponent,
+  }
+,
+   {
+    path: 'fee',
+    component:FeeComponent
+  },
+   {
+    path: 'feeList',
+    component:FeeListComponent,
+  },
+
+  {
+    path: 'fee/:id',
+    component:FeeComponent,
   }
 ];
 

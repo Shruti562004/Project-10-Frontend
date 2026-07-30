@@ -40,7 +40,7 @@ constructor(private translate: TranslateService, private httpService: HttpServic
   }
 
 
-   logout() {
+   logout() { 
     var _self = this;
     this.httpService.get(this.endpoint + 'logout', function (res: any) {
       localStorage.clear();

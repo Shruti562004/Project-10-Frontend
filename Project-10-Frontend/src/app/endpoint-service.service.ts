@@ -22,4 +22,6 @@ export class EndpointServiceService {
   public WATER = this.SERVER_URL + '/Water';
   public WEATHER = this.SERVER_URL + '/Weather';
     public DRONE = this.SERVER_URL + '/Drone';
+     public LIGHT = this.SERVER_URL + '/Light';
+       public FEE = this.SERVER_URL + '/Fee';
 }

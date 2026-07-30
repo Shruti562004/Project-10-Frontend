@@ -150,7 +150,7 @@ export class BaseCtl implements OnInit {
           _self.form.message = res.result.message;
         }
       },
-    );
+    );        
   }
 
   deleteMany(id: any) {

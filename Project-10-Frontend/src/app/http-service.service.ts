@@ -17,7 +17,7 @@ export class HttpServiceService {
     }, (error) => {
       this.handleError(error);
     });
-  }
+  }    
  
   get(endpoint: any, callback: any) {
     return this.httpClient.get(endpoint, { withCredentials: true }).subscribe((data) => {

@@ -39,9 +39,7 @@ import { CourierListComponent } from './courier/courier-list.component';
 import { VoiceListComponent } from './voice/voice-list.component';
 import { ForgetPasswordComponent } from './login/forget-password.component';
 import { ChangePasswordComponent } from './user/change-password.component';
-import { MyprofileComponent } from './user/my-profile.component';
-import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.component';
-import { GetMarksheetComponent } from './marksheet/get-marksheet.component';
+
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
 import { WaterComponent } from './water/water.component';
@@ -50,6 +48,14 @@ import { WeatherComponent } from './weather/weather.component';
 import { WeatherListComponent } from './weather/weather-list.component';
 import { DroneComponent } from './drone/drone.component';
 import { DroneListComponent } from './drone/drone-list.component';
+
+import { LightComponent } from './light/light.component';
+import { LightListComponent } from './light/light-list.component';
+import { GetMarksheetComponent } from './marksheet/get-marksheet.component';
+import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.component';
+import { MyprofileComponent } from './user/my-profile.component';
+import { FeeComponent } from './fee/fee.component';
+import { FeeListComponent } from './fee/fee-list.component';
 
 
 
@@ -100,10 +106,14 @@ WaterListComponent,
 WeatherComponent,
 WeatherListComponent,
 DroneComponent,
-DroneListComponent
+DroneListComponent,
+LightComponent,
+LightListComponent,
+FeeComponent,
+FeeListComponent
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,       
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
