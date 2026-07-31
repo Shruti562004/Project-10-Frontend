@@ -1,9 +1,7 @@
-FROM eclipse-temurin:11-jdk
+FROM nginx:alpine
 
-WORKDIR /app
+COPY dist/project-10-ui /usr/share/nginx/html
 
-COPY Project-10-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 80
 
-EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["nginx", "-g", "daemon off;"]
