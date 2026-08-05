@@ -11,7 +11,7 @@ export class HttpServiceService {
     private router: Router,
   ) {}
 
-  post(endpoint: any, bean: any, callback?: any) {
+  post(endpoint: any, bean: any,  callback?: any) {
     return this.httpClient.post(endpoint, bean).subscribe((data) => {
          callback(data);
       },
