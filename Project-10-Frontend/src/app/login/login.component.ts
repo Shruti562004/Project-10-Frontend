@@ -20,19 +20,20 @@ export class LoginComponent {
     successMessage:''
   };
 
-  constructor(private httpService: HttpServiceService, private router: Router, private activatedRoute : ActivatedRoute) {
+   constructor(private httpService: HttpServiceService, private router: Router, private activatedRoute: ActivatedRoute) {
 
-    this.activatedRoute.queryParams.subscribe(params => {
-
-      if (params['errorMessage']){
-        this.form.errorMessage = params['errorMessage'];
-      }
-      if (params['message']){
-        this.form.successMessage = params['message'];
+    this.activatedRoute.queryParams.subscribe(param => {
+      let msg = sessionStorage.getItem("message");
+      if (msg) {
+        this.form.message = msg;
+        sessionStorage.removeItem("message");
       }
 
-
+      if (param['errorMessage']) {
+        this.form.errorMessage = param['errorMessage'];
+      }
     })
+
   }
 
   signIn() {

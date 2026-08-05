@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { HttpServiceService } from './http-service.service';
 import { EndpointServiceService } from './endpoint-service.service';
 import { ServiceLocatorService } from './service-locator.service';
@@ -57,12 +61,9 @@ import { MyprofileComponent } from './user/my-profile.component';
 import { FeeComponent } from './fee/fee.component';
 import { FeeListComponent } from './fee/fee-list.component';
 
-
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 
 @NgModule({
   declarations: [
@@ -96,24 +97,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     VoiceListComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
-MyprofileComponent,
-MarksheetMeritListComponent,
-GetMarksheetComponent,
-VehicleComponent,
-VehicleListComponent,
-WaterComponent,
-WaterListComponent,
-WeatherComponent,
-WeatherListComponent,
-DroneComponent,
-DroneListComponent,
-LightComponent,
-LightListComponent,
-FeeComponent,
-FeeListComponent
+    MyprofileComponent,
+    MarksheetMeritListComponent,
+    GetMarksheetComponent,
+    VehicleComponent,
+    VehicleListComponent,
+    WaterComponent,
+    WaterListComponent,
+    WeatherComponent,
+    WeatherListComponent,
+    DroneComponent,
+    DroneListComponent,
+    LightComponent,
+    LightListComponent,
+    FeeComponent,
+    FeeListComponent,
   ],
   imports: [
-    BrowserModule,       
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -121,21 +122,21 @@ FeeListComponent
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
-
     {
-      provide: HTTP_INTERCEPTORS, useClass: AuthService, multi: true
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthService,
+      multi: true,
     },
 
-     HttpServiceService,
+    HttpServiceService,
     EndpointServiceService,
-    ServiceLocatorService
-    
+    ServiceLocatorService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
