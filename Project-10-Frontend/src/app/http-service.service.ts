@@ -48,26 +48,24 @@ export class HttpServiceService {
       });
   }
 
-  private handleError(error: any, callback?: any) {
-
+private handleError(error: any, callback?: any) {
 
   let message = '';
 
   if (error.status === 0) {
     message = 'Backend server is down';
-  }
-
-  else if (error.status === 503) {
+  } else if (error.status === 503) {
     message = error.error?.result?.message || 'Database server down!!';
-  }
-
-
-  else if (error.status === 500) {
+  } else if (error.status === 500) {
     message = 'Internal server error';
   }
 
-  this.router.navigate([this.router.url], {
-    queryParams: { errorMessage: message }
+  const currentRoute = this.router.url.split('?')[0];
+
+  this.router.navigate([currentRoute], {
+    queryParams: {
+      errorMessage: message
+    }
   });
 
   if (callback) {

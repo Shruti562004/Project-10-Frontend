@@ -43,6 +43,10 @@ import { LightComponent } from './light/light.component';
 import { LightListComponent } from './light/light-list.component';
 import { FeeListComponent } from './fee/fee-list.component';
 import { FeeComponent } from './fee/fee.component';
+import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order/order-list.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorListComponent } from './doctor/doctor-list.component';
 const routes: Routes = [
   {
     path: '',
@@ -336,6 +340,32 @@ const routes: Routes = [
   {
     path: 'fee/:id',
     component:FeeComponent,
+  },
+   {
+    path: 'order',
+    component:OrderComponent
+  },
+   {
+    path: 'orderList',
+    component:OrderListComponent,
+  },
+
+  {
+    path: 'order/:id',
+    component:OrderComponent,
+  },
+{
+    path: 'doctor',
+    component:DoctorComponent
+},
+   {
+    path: 'doctorList',
+    component:DoctorListComponent,
+  },
+
+  {
+    path: 'doctor/:id',
+    component:DoctorComponent ,
   }
 ];
 

@@ -60,6 +60,10 @@ import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.co
 import { MyprofileComponent } from './user/my-profile.component';
 import { FeeComponent } from './fee/fee.component';
 import { FeeListComponent } from './fee/fee-list.component';
+import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order/order-list.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorListComponent } from './doctor/doctor-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -112,6 +116,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     LightListComponent,
     FeeComponent,
     FeeListComponent,
+    OrderComponent,
+    OrderListComponent,
+    DoctorComponent,
+    DoctorListComponent,
   ],
   imports: [
     BrowserModule,

@@ -184,16 +184,7 @@
         </ul>
       </div>
 
-     <!-- Weather -->
-      <div class="dropdown">
-        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-          {{'Drone' | translate}}
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['/drone']">{{ 'Links.AddDrone' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/droneList']">{{ 'Links.DroneList' | translate }}</a></li>
-        </ul>
-      </div>
+     
 
       <!-- FEE -->
       <div class="dropdown">
@@ -216,6 +207,41 @@
           <li><a class="dropdown-item" [routerLink]="['/lightList']">{{ 'Links.LightList' | translate }}</a></li>
         </ul>
       </div>
+
+         <!-- Order -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Order' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/order']">{{ 'Links.AddOrder' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/orderList']">{{ 'Links.OrderList' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Weather -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Drone' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/drone']">{{ 'Links.AddDrone' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/droneList']">{{ 'Links.DroneList' | translate }}</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Weather -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Doctor' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/doctor']">{{ 'Links.AddDoctor' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/doctorList']">{{ 'Links.DoctorList' | translate }}</a></li>
+        </ul>
+      </div>
+
 
       <!-- JAVA DOCS FIXED -
       <div class="dropdown">

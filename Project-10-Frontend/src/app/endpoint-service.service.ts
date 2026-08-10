@@ -24,4 +24,6 @@ export class EndpointServiceService {
     public DRONE = this.SERVER_URL + '/Drone';
      public LIGHT = this.SERVER_URL + '/Light';
        public FEE = this.SERVER_URL + '/Fee';
+   public ORDER = this.SERVER_URL + '/Order';
+    public DOCTOR = this.SERVER_URL + '/Doctor';
 }
